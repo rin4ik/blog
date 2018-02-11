@@ -33,7 +33,7 @@
               </a>
             </li>
             <li><a href="#"><i class="fa fa-sticky-note-o"></i> <span>Посты</span></a></li>
-            <li><a href="#"><i class="fa fa-list-ul"></i> <span>Категории</span></a></li>
+            <li><a href="/admin/categories"><i class="fa fa-list-ul"></i> <span>Категории</span></a></li>
             <li><a href="#"><i class="fa fa-tags"></i> <span>Теги</span></a></li>
             <li>
               <a href="#">

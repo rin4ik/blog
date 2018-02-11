@@ -16,7 +16,17 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   <link rel="shortcut icon" href="">
-  
+  <style>
+    table.table form{
+      display:inline-block;
+    }
+    button.delete{
+      background:transparent;
+      border:none;
+      color:#337ab7;
+      padding:0px;
+    }
+  </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->

@@ -8,6 +8,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Category extends Model
 {
     use Sluggable;
+    protected $fillable = ['title'];
 
     public function posts()
     {
