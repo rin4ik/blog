@@ -15,7 +15,7 @@
           <!-- Default box -->
           <div class="box">
               <form action="/admin/categories" method="post">
-                    {{csrf_field()}}
+                {{csrf_field()}}
             <div class="box-header with-border">
               <h3 class="box-title">Добавляем категорию</h3>
                </div>
@@ -32,11 +32,11 @@
           </div>
             <!-- /.box-body -->
             <div class="box-footer">
-             
+              <a href="{{route('categories.index')}}">Назад</a>
               <button class="btn btn-success pull-right">Добавить</button>
-            
+              </div>
             <!-- /.box-footer-->
-        </form> <button  class="btn btn-default"><a href="{{route('categories.index')}}">Назад</a></button></div>
+        </form> 
           </div>
           <!-- /.box -->
     
