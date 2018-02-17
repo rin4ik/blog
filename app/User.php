@@ -48,16 +48,24 @@ class User extends Authenticatable
         return $user;
     }
 
-    public function edit($fields)
+    public function setPasswordAttribute($password)
     {
-        $this->fill($fields);
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    public static function edit($fields)
+    {
+        $user = new static;
+        $user->fill($fields);
         $user->password = bcrypt($fields['password']);
-        $this->save();
+        $user->save();
     }
 
     public function remove()
     {
-        Storage::delete('uploads/' . $this->image);
+        if ($this->avatar != null) {
+            Storage::delete('uploads/' . $this->avatar);
+        }
         $this->delete();
     }
 

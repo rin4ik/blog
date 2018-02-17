@@ -55,7 +55,7 @@
         </div>
           <!-- /.box-body -->
           <div class="box-footer">
-            <button class="btn btn-default">Назад</button>
+            <b><a href="/admin/users">Назад</a></b>
             <button type="submit" class="btn btn-success pull-right">Добавить</button>
           </div>
           <!-- /.box-footer-->
