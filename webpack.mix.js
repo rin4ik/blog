@@ -20,7 +20,7 @@ mix.styles([
     'resources/assets/admin/plugins/datatables/dataTables.bootstrap.css',
     'resources/assets/admin/dist/css/AdminLTE.min.css',
     'resources/assets/admin/dist/css/skins/_all-skins.min.css'
-], 'public/css/admin.css');
+], 'public/css/admin.css').browserSync('blog.test');
 
 mix.scripts([
     'resources/assets/admin/plugins/jQuery/jquery-2.2.3.min.js',
