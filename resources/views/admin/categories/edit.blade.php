@@ -7,8 +7,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Добавить категорию
-            <small>приятные слова..</small>
+            Менять категорию
           </h1>
         </section>
     
@@ -33,11 +32,11 @@
           </div>
             <!-- /.box-body -->
             <div class="box-footer">
-              
+              <b><a href="{{route('categories.index')}}">Назад</a></b>
               <button type="submit" class="btn btn-warning pull-right">Изменить</button>
-         
+         </div>
             <!-- /.box-footer-->
-          </form><button class="btn btn-default"><a href="{{route('categories.index')}}">Назад</a></button>   </div>
+          </form>
           </div>
           <!-- /.box -->
     
