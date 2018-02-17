@@ -38,8 +38,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    @foreach($tags as $tag)
+               
+                    @foreach($tags as $tag) <tr>
                   <td>{{$tag->id}}</td>
                   <td>{{$tag->title}}
                   </td>
@@ -54,8 +54,10 @@
                 </td>
                 </tr>
                 @endforeach    
-            </tfoot>
-              </table>
+               
+          </tbody>
+              </tfoot>
+            </table>
             </div>
             <!-- /.box-body -->
           </div>
