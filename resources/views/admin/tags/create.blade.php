@@ -34,7 +34,7 @@
       </div>
         <!-- /.box-body -->
         <div class="box-footer">
-            <a href="/admin/tags">Назад</a>
+          <b><a href="/admin/tags">Назад</a></b>
           <button type="submit" class="btn btn-success pull-right">Добавить</button>
         </div>
         <!-- /.box-footer-->

@@ -6,8 +6,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Добавить тег
-        <small>приятные слова..</small>
+        Менять тег
       </h1>
     </section>
 
@@ -31,11 +30,10 @@
       </div>
         <!-- /.box-body -->
         <div class="box-footer">
-         
-          <button class="btn btn-warning pull-right">Изменить</button>
+          <b><a href="/admin/tags">Назад</a></b>
+          <button class="btn btn-warning pull-right">Изменить</button></div>
     </form>
-    <button class="btn btn-default"><a href="/admin/tags">Назад</a></button>
-</div>
+
 
     <!-- /.box-footer-->
       </div>
