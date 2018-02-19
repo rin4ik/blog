@@ -46,8 +46,8 @@
                   <td>{{$post->id}}</td>
                   <td>{{$post->title}}
                   </td>
-                  <td></td>
-                  <td></td>
+                  <td>{{$post->getCategoryTitle()}}</td>
+                  <td>{{$post->getTagsTitles()}}</td>
                   <td>
                     <img src="{{$post->getImage()}}" alt="" width="100">
                   </td>

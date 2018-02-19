@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('slug');
             $table->text('content');
             $table->date('date')->nullable();
-            $table->string('image')->nulable();
+            $table->string('image')->nullable();
             $table->integer('category_id')->nullable();
             $table->integer('user_id')->nullable();
             $table->integer('status')->default(0);

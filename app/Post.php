@@ -10,13 +10,34 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Post extends Model
 {
     use Sluggable;
-    protected $guarded = [];
+    protected $fillable = ['title', 'content', 'date', 'description'];
     const IS_DRAFT = 0;
     const IS_PUBLIC = 1;
 
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function getCategoryTitle()
+    {
+        if ($this->category != null) {
+            return $this->category->title;
+        }
+        return 'Нет категорий';
+    }
+
+    public function getTagsTitles()
+    {
+        if (!$this->tags->isEmpty()) {
+            return implode(', ', $this->tags->pluck('title')->all());
+        }
+        return 'Нет тегов';
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 
     public function sluggable()
@@ -31,16 +52,6 @@ class Post extends Model
     public function author()
     {
         return $this->belongsTo(User::class, 'user_id');
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(
-            Tag::class,
-            'post_tags',
-            'post_id',
-            'tag_id'
-        );
     }
 
     public function setDateAttribute($value)
@@ -112,7 +123,7 @@ class Post extends Model
         if ($ids == null) {
             return;
         }
-        $this->tags()->sync($ids);
+        $this->tags()->attach($ids);
     }
 
     public function setDraft()

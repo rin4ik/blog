@@ -52,19 +52,19 @@
                     
                     </select>
             </div>
-            <div class="form-group">
-              <label>Теги</label>
-              <select class="form-control select2" multiple="multiple" data-placeholder="Выберите теги" name="tags">
-                    
-                        @if ($tags->count())
-                    
-                            @foreach($tags as $tag)
-                                <option value="{{ $tag->id }}">{{ $tag->title }}</option>    
-                            @endforeach
-                        @endif
-                    
-                    </select>
-            </div>
+              <div class="form-group">
+                <label>Теги</label>
+                <select class="form-control select2" multiple="multiple" data-placeholder="Выберите теги" name="tags[]">
+                      
+                          @if ($tags->count())
+                      
+                              @foreach($tags as $tag)
+                                  <option value="{{ $tag->id }}">{{ $tag->title }}</option>    
+                              @endforeach
+                          @endif
+                      
+                      </select>
+              </div>
             <!-- Date -->
             <div class="form-group">
               <label>Дата:</label>
