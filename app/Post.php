@@ -13,6 +13,10 @@ class Post extends Model
     protected $fillable = ['title', 'content', 'date', 'description'];
     const IS_DRAFT = 0;
     const IS_PUBLIC = 1;
+    protected $casts = [
+        'status' => 'boolean',
+        'is_featured' => 'boolean'
+    ];
 
     public function category()
     {
@@ -60,6 +64,12 @@ class Post extends Model
         $this->attributes['date'] = $date;
     }
 
+    public function getDateAttribute($value)
+    {
+        $date = Carbon::createFromFormat('Y-m-d', $value)->format('d/m/y');
+        return $date;
+    }
+
     public static function add($fields)
     {
         $post = new static;
@@ -71,6 +81,7 @@ class Post extends Model
 
     public function edit($fields)
     {
+        $post = new static;
         $post->fill($fields);
         $post->save();
     }

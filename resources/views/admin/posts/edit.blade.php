@@ -16,46 +16,58 @@
 
       <!-- Default box -->
       <div class="box">
+          <form action="/admin/posts/{{$post->id}}" method="POST" enctype="multipart/form-data">
+            {{ csrf_field() }} {{ method_field('PATCH') }}
         <div class="box-header with-border">
           <h3 class="box-title">Обновляем статью</h3>
         </div>
+        
         <div class="box-body">
           <div class="col-md-6">
             <div class="form-group">
               <label for="exampleInputEmail1">Название</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" value="Как изучить Laravel создавая Блог?">
+              <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="" value="{{$post->title}}">
+              <div class="form-group danger">
+                <p class="text-danger">{{ $errors->first('title') }}</p>
+          </div>
             </div>
             
             <div class="form-group">
-              <img src="../assets/dist/img/boxed-bg.jpg" alt="" class="img-responsive" width="200">
-              <label for="exampleInputFile">Лицевая картинка</label>
-              <input type="file" id="exampleInputFile">
+              <img src="{{$post->getImage()}}" alt="" width="200" class="img-responsive">
+              <label for="exampleInputFile">Картинка</label>
+              <input name="image" type="file" id="exampleInputFile">
 
               <p class="help-block">Какое-нибудь уведомление о форматах..</p>
+             <div class="form-group danger">
+              <p class="text-danger">{{ $errors->first('image') }}</p>
+        </div>
             </div>
             <div class="form-group">
               <label>Категория</label>
-              <select class="form-control select2" style="width: 100%;">
-                <option>Alabama</option>
-                <option>Alaska</option>
-                <option selected="selected">California</option>
-                <option>Delaware</option>
-                <option>Tennessee</option>
-                <option>Texas</option>
-                <option>Washington</option>
-              </select>
+              <select class="form-control select2" name="category_id">
+                        @if ($categories->count())
+                    
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}" selected>{{ $category->title }}</option>    
+                            @endforeach
+                        @endif
+                    
+                    </select>
             </div>
             <div class="form-group">
               <label>Теги</label>
-              <select class="form-control select2" multiple="multiple" data-placeholder="Выберите теги" style="width: 100%;">
-                <option>Alabama</option>
-                <option selected="selected">Alaska</option>
-                <option>California</option>
-                <option>Delaware</option>
-                <option selected="selected">Tennessee</option>
-                <option>Texas</option>
-                <option>Washington</option>
-              </select>
+              <select class="form-control select2" multiple="multiple" data-placeholder="Выберите теги" name="tags[]" >
+                    
+                        @if ($tags->count())
+                 
+                            @foreach($tags as $tag)
+                                <option value="{{ $tag->id }}"  @if($post->tags->contains($tag->id)) selected
+                                    
+                                            @endif>{{ $tag->title }}</option>    
+                            @endforeach
+                        @endif
+                    
+                    </select>
             </div>
             <!-- Date -->
             <div class="form-group">
@@ -65,24 +77,29 @@
                 <div class="input-group-addon">
                   <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right" id="datepicker" value="08/29/2017">
+                <input type="text" class="form-control pull-right" id="datepicker" name="date" value="{{$post->date}}">
               </div>
               <!-- /.input group -->
+              <div class="form-group danger">
+                  <p class="text-danger">{{ $errors->first('date') }}</p>
+            </div>
             </div>
 
             <!-- checkbox -->
+            <!-- checkbox -->
             <div class="form-group">
               <label>
-                <input type="checkbox" class="minimal" checked>
+                <input type="checkbox" class="minimal" name="is_featured"   {{($post->is_featured=='1')? 'checked':'' }}>
               </label>
               <label>
                 Рекомендовать
               </label>
             </div>
+
             <!-- checkbox -->
             <div class="form-group">
               <label>
-                <input type="checkbox" class="minimal">
+                <input type="checkbox" class="minimal" name="status" <?php echo ($post->status=='1')? 'checked="checked"':'' ?>>
               </label>
               <label>
                 Черновик
@@ -92,21 +109,21 @@
           <div class="col-md-12">
             <div class="form-group">
               <label for="exampleInputEmail1">Полный текст</label>
-              <textarea name="" id="" cols="30" rows="10" class="form-control">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum omnis error quae dicta quidem illo atque quisquam a enim accusantium molestias iste, consectetur voluptas reiciendis impedit doloribus ea mollitia, excepturi commodi ipsam aperiam, itaque explicabo.
-
-Et dolore, unde non quod sint, blanditiis doloribus corporis quibusdam tempora commodi itaque cumque, velit officiis assumenda eveniet sed ad. Impedit voluptatibus excepturi ipsa, quidem architecto nulla, explicabo, ex eius quo nesciunt tempore dicta fugiat suscipit ipsum alias iste, vel consequatur optio libero doloremque fuga voluptas nam deleniti sint? Omnis vero voluptatum esse reiciendis veniam, animi quasi assumenda, delectus ut labore culpa pariatur fuga. 
-
-Est suscipit praesentium nihil, aliquid dolore minus, cupiditate natus ipsa magni consequatur animi nisi necessitatibus repellendus, incidunt eveniet atque facere, asperiores quos iste quam debitis eaque reiciendis. Iusto rem laudantium, laboriosam in similique maxime nulla eos, voluptatum sint optio esse dolorem ducimus saepe architecto repellendus. Incidunt cumque aliquam porro et eos?
-              </textarea>
+              <textarea name="content" id="" cols="30" rows="10" class="form-control" >{{$post->content}}</textarea>
+              <div class="form-group danger">
+                  <p class="text-danger">{{ $errors->first('content') }}</p>
+            </div>
           </div>
         </div>
       </div>
+
         <!-- /.box-body -->
         <div class="box-footer">
-          <button class="btn btn-default">Назад</button>
+            <b><a href="/admin/posts" >Назад</a></b>
           <button class="btn btn-warning pull-right">Изменить</button>
         </div>
         <!-- /.box-footer-->
+      </form>
       </div>
       <!-- /.box -->
 

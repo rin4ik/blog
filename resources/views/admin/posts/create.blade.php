@@ -42,7 +42,7 @@
             <div class="form-group">
               <label>Категория</label>
               <select class="form-control select2" name="category_id">
-                   
+                   <option value="">Choose One...</option>
                         @if ($categories->count())
                     
                             @foreach($categories as $category)

@@ -58,17 +58,6 @@ class PostsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -76,7 +65,11 @@ class PostsController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $tags = Tag::all();
+        $categories = Category::all();
+        $selectedTags[] = $post->tags->pluck('id')->all();
+
+        return view('admin.posts.edit', compact('post', 'categories', 'tags', 'selectedTags'));
     }
 
     /**
@@ -86,9 +79,21 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $post->update(request()->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'date' => 'required',
+            'image' => 'nullable|image'
+        ]));
+
+        $post->uploadImage($request->file('image'));
+        $post->setCategory($request->get('category_id'));
+        $post->setTags($request->get('tags'));
+        $post->toggleStatus($request->get('status'));
+        $post->toggleFeatured($request->get('is_featured'));
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -97,8 +102,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->remove();
+        return redirect()->back();
     }
 }
