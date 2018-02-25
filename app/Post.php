@@ -134,7 +134,7 @@ class Post extends Model
         if ($ids == null) {
             return;
         }
-        $this->tags()->attach($ids);
+        $this->tags()->sync($ids);
     }
 
     public function setDraft()
