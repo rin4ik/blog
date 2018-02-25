@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.index');
+        $posts = Post::paginate(5);
+        return view('pages.index', compact('posts'));
     }
 
     /**
@@ -43,9 +45,11 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $post = Post::whereSlug($slug)->firstOrFail();
+
+        return view('pages.show', compact('post'));
     }
 
     /**

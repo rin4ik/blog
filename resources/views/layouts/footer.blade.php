@@ -6,28 +6,28 @@
         <div id="footer-instagram" class="owl-carousel">
 
             <div class="item">
-                <a href="#"><img src="images/ins-1.jpg" alt=""></a>
+                <a href="#"><img src="{{asset('images/ins-1.jpg')}}" alt=""></a>
             </div>
             <div class="item">
-                <a href="#"><img src="images/ins-2.jpg" alt=""></a>
+                <a href="#"><img src="{{asset('images/ins-2.jpg')}}" alt=""></a>
             </div>
             <div class="item">
-                <a href="#"><img src="images/ins-3.jpg" alt=""></a>
+                <a href="#"><img src="{{asset('images/ins-3.jpg')}}" alt=""></a>
             </div>
             <div class="item">
-                <a href="#"><img src="images/ins-4.jpg" alt=""></a>
+                <a href="#"><img src="{{asset('images/ins-4.jpg')}}" alt=""></a>
             </div>
             <div class="item">
-                <a href="#"><img src="images/ins-5.jpg" alt=""></a>
+                <a href="#"><img src="{{asset('images/ins-5.jpg')}}" alt=""></a>
             </div>
             <div class="item">
-                <a href="#"><img src="images/ins-6.jpg" alt=""></a>
+                <a href="#"><img src="{{asset('images/ins-6.jpg')}}" alt=""></a>
             </div>
             <div class="item">
-                <a href="#"><img src="images/ins-7.jpg" alt=""></a>
+                <a href="#"><img src="{{asset('images/ins-7.jpg')}}" alt=""></a>
             </div>
             <div class="item">
-                <a href="#"><img src="images/ins-8.jpg" alt=""></a>
+                <a href="#"><img src="{{asset('images/ins-8.jpg')}}" alt=""></a>
             </div>
 
         </div>
@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-md-4">
                 <aside class="footer-widget">
-                    <div class="about-img"><img src="images/footer-logo.png" alt=""></div>
+                    <div class="about-img"><img src="{{asset('images/footer-lo')}}go.png" alt=""></div>
                     <div class="about-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
                         eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed voluptua. At vero eos et
                         accusam et justo duo dlores et ea rebum magna text ar koto din.
@@ -77,7 +77,7 @@
                                             magna aliquyam eratma</p>
                                     </div>
                                     <div class="author-id">
-                                        <img src="images/author.png" alt="">
+                                        <img src="{{asset('images/author.pn')}}g" alt="">
 
                                         <div class="author-text">
                                             <h4>Sophia</h4>
@@ -96,7 +96,7 @@
                                             magna aliquyam eratma</p>
                                     </div>
                                     <div class="author-id">
-                                        <img src="images/author.png" alt="">
+                                        <img src="{{asset('images/author.pn')}}g" alt="">
 
                                         <div class="author-text">
                                             <h4>Sophia</h4>
@@ -115,7 +115,7 @@
                                             magna aliquyam eratma</p>
                                     </div>
                                     <div class="author-id">
-                                        <img src="images/author.png" alt="">
+                                        <img src="{{asset('images/author.pn')}}g" alt="">
 
                                         <div class="author-text">
                                             <h4>Sophia</h4>
@@ -137,7 +137,7 @@
 
                     <div class="custom-post">
                         <div>
-                            <a href="#"><img src="images/footer-img.png" alt=""></a>
+                            <a href="#"><img src="{{asset('images/footer-im')}}g.png" alt=""></a>
                         </div>
                         <div>
                             <a href="#" class="text-uppercase">Home is peaceful Place</a>

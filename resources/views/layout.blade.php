@@ -19,16 +19,24 @@
     <![endif]-->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-
+    <link rel="icon" type="image/png" href="{{asset('images/favicon.png')}}">
+<style>
+  
+</style>
 </head>
 
 <body>
-@include('layouts.nav');
+@include('layouts.nav')
+<div class="main-content">
+  <div class="container">
+        @yield('content')
+        @include('layouts.right-sidebar')
+      </div>
+  </div>
+</div>
 
-@yield('content')
-
-@include('layouts.footer');
+  
+@include('layouts.footer')
 <!-- js files -->
 <script src="{{asset('js/front.js')}}"></script>
 

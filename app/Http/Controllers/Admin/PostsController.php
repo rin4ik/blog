@@ -46,7 +46,8 @@ class PostsController extends Controller
             'title' => 'required',
             'content' => 'required',
             'date' => 'required',
-            'image' => 'nullable|image'
+            'image' => 'nullable|image',
+            'description' => 'required'
         ]);
         $post = Post::add($request->all());
         $post->uploadImage($request->file('image'));

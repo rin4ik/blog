@@ -18,9 +18,24 @@ class Post extends Model
         'is_featured' => 'boolean'
     ];
 
+    public function path()
+    {
+        return "/post/{$this->slug}";
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function getCategoryTitle()
@@ -51,11 +66,6 @@ class Post extends Model
                 'source' => 'title'
             ]
         ];
-    }
-
-    public function author()
-    {
-        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function setDateAttribute($value)
@@ -177,5 +187,10 @@ class Post extends Model
         }
 
         return $this->setFeatured();
+    }
+
+    public function getDate()
+    {
+        return Carbon::createFromFormat('d/m/y', $this->date)->format('F d, Y');
     }
 }

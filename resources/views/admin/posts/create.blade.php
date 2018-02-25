@@ -103,13 +103,22 @@
           </div>
           <div class="col-md-12">
               <div class="form-group">
-                <label for="exampleInputEmail1">Полный текст</label>
-                <textarea name="content" id="" cols="30" rows="10" class="form-control" ></textarea>
+                <label for="exampleInputEmail1">Описание</label>
+                <input name="description" type="text" class="form-control" value="{{old('description')}}">
                 <div class="form-group danger">
-                    <p class="text-danger">{{ $errors->first('content') }}</p>
+                    <p class="text-danger">{{ $errors->first('description') }}</p>
               </div>
             </div>
           </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Полный текст</label>
+              <textarea name="content" id="" cols="30" rows="10" class="form-control" >{{old('content')}}</textarea>
+              <div class="form-group danger">
+                  <p class="text-danger">{{ $errors->first('content') }}</p>
+            </div>
+          </div>
+        </div>
       </div>
 
         <!-- /.box-body -->

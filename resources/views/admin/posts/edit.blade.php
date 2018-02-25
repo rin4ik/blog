@@ -16,7 +16,7 @@
 
       <!-- Default box -->
       <div class="box">
-          <form action="/admin/posts/{{$post->id}}" method="POST" enctype="multipart/form-data">
+          <form action="/admin/posts/{{$post->slug}}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }} {{ method_field('PATCH') }}
         <div class="box-header with-border">
           <h3 class="box-title">Обновляем статью</h3>
@@ -106,6 +106,15 @@
               </label>
             </div>
           </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Описание</label>
+              <input name="description" type="text" class="form-control" value="{{$post->description}}">
+              <div class="form-group danger">
+                  <p class="text-danger">{{ $errors->first('description') }}</p>
+            </div>
+          </div>
+        </div>
           <div class="col-md-12">
             <div class="form-group">
               <label for="exampleInputEmail1">Полный текст</label>
