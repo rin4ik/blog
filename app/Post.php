@@ -126,7 +126,6 @@ class Post extends Model
         if ($this->image == null) {
             return '/img/no-image.png';
         }
-
         return '/uploads/' . $this->image;
     }
 
@@ -192,5 +191,32 @@ class Post extends Model
     public function getDate()
     {
         return Carbon::createFromFormat('d/m/y', $this->date)->format('F d, Y');
+    }
+
+    public function hasPrevious()
+    {
+        return self::where('id', '<', $this->id)->max('id');
+    }
+
+    public function hasNext()
+    {
+        return self::where('id', '>', $this->id)->min('id');
+    }
+
+    public function related()
+    {
+        return self::all()->except($this->id);
+    }
+
+    public function getPrevious()
+    {
+        $postId = $this->hasPrevious();
+        return $this->find($postId);
+    }
+
+    public function getNext()
+    {
+        $postId = $this->hasNext();
+        return $this->find($postId);
     }
 }

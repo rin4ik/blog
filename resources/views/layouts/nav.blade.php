@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="{{asset('images/logo.png')}}" alt="" width="120" height="120" style="margin-top:-40px; "></a>
+                <a class="navbar-brand" href="/"><img src="{{asset('logo/logo.png')}}" alt="" width="120" height="120" style="margin-top:-40px; "></a>
             </div>
 
 

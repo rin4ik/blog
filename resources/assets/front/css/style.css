@@ -61,6 +61,27 @@ input {
     line-height: 26px;
 }
 
+.single-item>a {
+    text-decoration: none;
+}
+
+.tagsM {
+    color: #615b5b;
+    margin-top: 52px;
+    margin-bottom: 52px;
+    text-align: right;
+    position: relative;
+}
+
+.tagsM>a {
+    color: #615b5b;
+}
+
+.tagsM>a:hover {
+    color: rgb(155, 26, 54);
+    text-decoration: none;
+}
+
 img {
     max-width: 100%;
 }
