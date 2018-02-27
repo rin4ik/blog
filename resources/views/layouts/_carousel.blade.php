@@ -11,7 +11,7 @@
                 <img src="{{$item->getImage()}}" width="215px" height="100px" alt="">
                 <p>{{$item->title}}</p>
             </a>
-            </div>
+        </div>
           @endforeach
     </div>
     
