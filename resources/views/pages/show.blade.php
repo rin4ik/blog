@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-
+    
             <div class="col-md-8">
                 <article class="post shadow-md">
                     <div class="post-thumb">
@@ -10,7 +10,7 @@
                         <header class="entry-header text-center text-uppercase">
                             <h6><a href="{{route('category.show',$post->category->slug)}}"> {{$post->category->title}}</a></h6>
 
-                            <h1 class="entry-title"><a href="blog.html">{{$post->title}}</a></h1>
+                            <h1 class="entry-title">{{$post->title}}</h1>
 
 
                         </header>
