@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Tag;
 use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,7 +18,21 @@ class HomeController extends Controller
     {
         $posts = Post::with(['owner', 'category'])->paginate(5);
 
-        return view('pages.index', compact('posts'));
+        return view('pages.index', compact('posts', 'categories'));
+    }
+
+    public function tag($slug)
+    {
+        $tag = Tag::whereSlug($slug)->firstOrFail();
+        $posts = $tag->posts;
+        return view('pages.list', compact('posts'));
+    }
+
+    public function category($slug)
+    {
+        $category = Category::whereSlug($slug)->firstOrFail();
+        $posts = $category->posts;
+        return view('pages.list', compact('posts'));
     }
 
     /**
