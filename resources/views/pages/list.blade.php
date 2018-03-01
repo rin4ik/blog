@@ -2,7 +2,8 @@
 
 <!--main content start-->
 <div class="col-md-8 ">
-    @foreach($posts as $post)
+    @forelse($posts as $post)
+  @if(count($post))
     <div class="post-thumb shadow-md">
         <a href="">
             <img src="{{$post->getImage()}}" alt="">
@@ -37,7 +38,13 @@
             @include('layouts._share')
         </div>
     </article>
-    @endforeach 
+    
+    @endif @empty
+    <ul>
+            <li >Нет подходящих результатов!</li>
+            
+    </ul>
+    @endforelse
 </div>
 <!-- end main content-->
 @endsection

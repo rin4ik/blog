@@ -1,16 +1,26 @@
 <div class="col-md-4" data-sticky_column>
     <div class="primary-sidebar">
-        
-        <aside class="widget news-letter shadow" >
-            <h3 class="widget-title text-uppercase text-center">Get Newsletter</h3>
-
-            <form action="#">
-                <input type="email" placeholder="Your email address">
-                <input type="submit" value="Subscribe Now"
-                       class="text-uppercase text-center btn btn-subscribe">
-            </form>
-
-        </aside>
+            <div class="panel panel-default shadow-md">
+                   
+                    <h3 class=" widget-title text-uppercase text-center" style="margin:20px">Категории</h3>
+                   <ul  class="list-group">
+                        @foreach($categories as $category)
+                        <li  class="list-group-item" style='text-transform:uppercase'>   <a style="text-decoration:none" href="{{route('category.show',$category->slug)}}">{{$category->title}}</a></li>
+                        @endforeach
+                     
+                   </ul>
+             </div>
+        <aside class="widget news-letter shadow " >
+            <h3 class="widget-title text-uppercase text-center">Теги</h3>
+                 <ul >
+                        @foreach($tags as $tag)
+                         <a style="text-decoration:none; color:#383636" href="{{route('tag.show',$tag->slug)}}"><li  style='text-transform:lowercase;margin-bottom:10px; ' >{{$tag->title}}<span class="glyphicon glyphicon-tag" style="margin-right:10px; color:#615b5b"></li></a>
+                        @endforeach
+                     
+                   </ul>
+      
+         
+            </aside>
         <aside class="widget shadow">
             <h3 class="widget-title text-uppercase text-center">Popular Posts</h3>
 

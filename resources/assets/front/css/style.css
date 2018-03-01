@@ -78,7 +78,7 @@ input {
 }
 
 .tagsM>a:hover {
-    color: rgb(155, 26, 54);
+    color: rgb(11, 14, 3);
     text-decoration: none;
 }
 
@@ -855,10 +855,7 @@ Categories
     padding-top: 0;
 }
 
-.widget ul li:last-child {
-    border-bottom: 0;
-    padding-bottom: 0;
-}
+.widget ul li:last-child {}
 
 
 /*========
@@ -1196,6 +1193,10 @@ blog css
     width: 90%;
     height: 80%;
     background: rgba(19, 15, 15, 0.781);
+}
+
+bold:hover {
+    font-weight: 700;
 }
 
 
