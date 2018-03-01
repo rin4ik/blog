@@ -188,6 +188,11 @@ class Post extends Model
         return $this->setFeatured();
     }
 
+    public function hasCategory()
+    {
+        return $this->category == null ? false : true;
+    }
+
     public function getDate()
     {
         return Carbon::createFromFormat('d/m/y', $this->date)->format('F d, Y');
