@@ -24,14 +24,14 @@ class HomeController extends Controller
     public function tag($slug)
     {
         $tag = Tag::whereSlug($slug)->firstOrFail();
-        $posts = $tag->posts;
+        $posts = $tag->posts()->paginate(5);
         return view('pages.list', compact('posts'));
     }
 
     public function category($slug)
     {
         $category = Category::whereSlug($slug)->firstOrFail();
-        $posts = $category->posts;
+        $posts = $category->posts()->paginate(5);
         return view('pages.list', compact('posts'));
     }
 

@@ -38,13 +38,12 @@
             @include('layouts._share')
         </div>
     </article>
-    
     @endif @empty
     <ul>
             <li >Нет подходящих результатов!</li>
             
     </ul>
-    @endforelse
+    @endforelse{{$posts->links()}}
 </div>
 <!-- end main content-->
 @endsection
