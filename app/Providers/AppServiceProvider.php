@@ -2,8 +2,7 @@
 
 namespace App\Providers;
 
-use App\Tag;
-use App\Category;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,12 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        \View::composer('*', function ($view) {
-            $view->with('categories', Category::orderBy('title', 'asc')->get());
-        });
-        \View::composer('*', function ($view) {
-            $view->with('tags', Tag::all());
-        });
+        View::composer(
+            '*',
+            'App\Http\Composers\Views'
+        );
+
         \Schema::defaultStringLength(191);
     }
 
