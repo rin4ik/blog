@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(
-            '*',
+            'layouts.right-sidebar',
             'App\Http\Composers\Views'
         );
 

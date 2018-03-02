@@ -27,7 +27,7 @@ class Views
      */
     public function compose(View $view)
     {
-        $view->with('categories', Category::orderBy('title', 'asc')->get());
+        $view->with('categories', Category::with('posts')->orderBy('title', 'asc')->get());
 
         $view->with('tags', Tag::all());
 

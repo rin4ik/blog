@@ -1,6 +1,6 @@
 <div class="related-post-carousel shadow-md"><!--related post carousel-->
     <div class="related-heading">
-        <h4>You might also like</h4>
+        <h4>Вам также может понравиться</h4>
     </div>
     <div class="items">
         
