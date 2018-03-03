@@ -89,7 +89,7 @@
             <!-- checkbox -->
             <div class="form-group">
               <label>
-                <input type="checkbox" class="minimal" name="is_featured"   {{($post->is_featured=='1')? 'checked':'' }}>
+                <input type="checkbox" class="minimal" name="is_featured"  {{ (old('is_featured') == 'on') ? 'checked' : '' }}   {{($post->is_featured=='1')? 'checked':'' }}>
               </label>
               <label>
                 Рекомендовать
@@ -99,7 +99,7 @@
             <!-- checkbox -->
             <div class="form-group">
               <label>
-                <input type="checkbox" class="minimal" name="status" <?php echo ($post->status=='1')? 'checked="checked"':'' ?>>
+                <input type="checkbox" class="minimal" name="status" {{ (old('status') == 'on') ? 'checked' : '' }} {{($post->status=='1')? 'checked':'' }}>
               </label>
               <label>
                 Черновик
