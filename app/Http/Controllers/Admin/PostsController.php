@@ -55,7 +55,7 @@ class PostsController extends Controller
         $post->setTags($request->get('tags'));
         $post->toggleStatus($request->get('status'));
         $post->toggleFeatured($request->get('is_featured'));
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('flash', 'Запись добавлена!');
     }
 
     /**
@@ -94,7 +94,7 @@ class PostsController extends Controller
         $post->setTags($request->get('tags'));
         $post->toggleStatus($request->get('status'));
         $post->toggleFeatured($request->get('is_featured'));
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('flash', 'Запись обновлена!');
     }
 
     /**
@@ -106,6 +106,6 @@ class PostsController extends Controller
     public function destroy(Post $post)
     {
         $post->remove();
-        return redirect()->back();
+        return redirect()->back()->with('flash', 'Запись удалена!');
     }
 }

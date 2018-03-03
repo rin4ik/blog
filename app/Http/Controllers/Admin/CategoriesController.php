@@ -43,7 +43,7 @@ class CategoriesController extends Controller
         Category::create([
             'title' => request('title'),
            ]);
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('flash', 'Категория добавлена!');
     }
 
     /**
@@ -81,7 +81,7 @@ class CategoriesController extends Controller
             'title' => 'required',
         ]));
 
-        return redirect()->route('categories.index');
+        return redirect()->route('categories.index')->with('flash', 'Категория обновлена!');
     }
 
     /**
@@ -93,6 +93,6 @@ class CategoriesController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->back();
+        return redirect()->back()->with('flash', 'Категория удалена!');
     }
 }

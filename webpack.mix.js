@@ -54,7 +54,6 @@ mix.styles([
     'resources/assets/front/css/style.css',
     'resources/assets/front/css/responsive.css'
 ], 'public/css/front.css');
-
 mix.scripts([
     'resources/assets/front/js/jquery-1.11.3.min.js',
     'resources/assets/front/js/bootstrap.min.js',
@@ -63,6 +62,6 @@ mix.scripts([
     'resources/assets/front/js/menu.js',
     'resources/assets/front/js/scripts.js'
 ], 'public/js/front.js');
-
+mix.js('resources/assets/js/app.js', 'public/js');
 mix.copy('resources/assets/front/fonts', 'public/fonts');
 mix.copy('resources/assets/front/images', 'public/images');

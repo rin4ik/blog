@@ -43,7 +43,7 @@ class TagsController extends Controller
         Tag::create([
             'title' => request('title'),
            ]);
-        return redirect()->route('tags.index');
+        return redirect()->route('tags.index')->with('flash', 'Тег добавлен!');
     }
 
     /**
@@ -81,7 +81,7 @@ class TagsController extends Controller
             'title' => 'required',
         ]));
 
-        return redirect()->route('tags.index');
+        return redirect()->route('tags.index')->with('flash', 'Тег обновлен!');
     }
 
     /**
@@ -93,6 +93,6 @@ class TagsController extends Controller
     public function destroy(Tag $tag)
     {
         $tag->delete();
-        return redirect()->back();
+        return redirect()->back()->with('flash', 'Тег удален!');
     }
 }

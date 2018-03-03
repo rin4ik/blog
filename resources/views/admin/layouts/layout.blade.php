@@ -2,7 +2,7 @@
 <html>
 <head>
        
-        
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Admin</title>
@@ -32,7 +32,11 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
+<div id="app">
 
+  <flash message="{{session('flash')}}"></flash>
+  
+  
   <header class="main-header">
     <!-- Logo -->
     <a href="/index2.html" class="logo">
@@ -57,9 +61,12 @@
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
+  </div>
 </div>
+<script src="/js/app.js"></script>
 <!-- ./wrapper -->
 <script src="/js/admin.js"></script>
+
 <script src="/plugins/ckeditor/ckeditor.js"></script>
 <script src="/plugins/ckfinder/ckfinder.js"></script>
 
