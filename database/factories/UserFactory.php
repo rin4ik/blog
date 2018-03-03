@@ -21,7 +21,7 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'image' => 'photo1.png', // secret
         'date' => '25/02/18',
         'views' => $faker->numberBetween(0, 5000),
-        'category_id' => 1,
+        'category_id' => $faker->numberBetween(1,8),
         'user_id' => 1,
         'status' => 1,
         'is_featured' => 0
