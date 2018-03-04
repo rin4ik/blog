@@ -43,7 +43,7 @@
 @include('layouts.footer')
 <!-- js files -->
 <script src="{{asset('js/front.js')}}"></script>
-<script src="{{asset('js/app.js')}}"></script>
+{{--  <script src="{{asset('js/app.js')}}"></script>  --}}
 
 </body>
 </html>

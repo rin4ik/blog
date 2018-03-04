@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Post::with(['owner', 'category'])->paginate(5);
-
+        $posts->withPath('students');
         return view('pages.index', compact('posts', 'categories'));
     }
 

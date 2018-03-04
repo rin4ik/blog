@@ -11,6 +11,9 @@ let mix = require('laravel-mix');
  |
  */
 //styles and js for admin page
+
+mix.js('resources/assets/js/app.js', 'public/js');
+
 mix.styles([
     'resources/assets/admin/bootstrap/css/bootstrap.min.css',
     'resources/assets/admin/font-awesome/4.5.0/css/font-awesome.min.css',
@@ -62,6 +65,5 @@ mix.scripts([
     'resources/assets/front/js/menu.js',
     'resources/assets/front/js/scripts.js'
 ], 'public/js/front.js');
-mix.js('resources/assets/js/app.js', 'public/js');
 mix.copy('resources/assets/front/fonts', 'public/fonts');
 mix.copy('resources/assets/front/images', 'public/images');

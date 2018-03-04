@@ -43,14 +43,9 @@ class User extends Authenticatable
     {
         $user = new static;
         $user->fill($fields);
-        $user->password = bcrypt($fields['password']);
+        $user->password = \Hash::make($fields['password']);
         $user->save();
         return $user;
-    }
-
-    public function setPasswordAttribute($password)
-    {
-        $this->attributes['password'] = bcrypt($password);
     }
 
     public static function edit($fields)

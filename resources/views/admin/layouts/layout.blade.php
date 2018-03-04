@@ -63,7 +63,7 @@
   <div class="control-sidebar-bg"></div>
   </div>
 </div>
-<script src="/js/app.js"></script>
+{{--  <script src="/js/app.js"></script>  --}}
 <!-- ./wrapper -->
 <script src="/js/admin.js"></script>
 
