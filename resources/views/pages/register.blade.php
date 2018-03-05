@@ -18,7 +18,9 @@
                                         value="{{old('name')}}">
                                        @if($errors->has('name'))
                                        <div class="form-group danger">
-                                        <p class="text-danger" style="margin-left:20px">{{ $errors->first('name') }}</p>
+                                        <p class="text-danger" style="margin-left:20px"
+                                        value="{{ old('name') }}" 
+                                        >{{ $errors->first('name') }}</p>
                                       
                                         </div>  
                                         @endif
@@ -32,7 +34,9 @@
                                        value="{{old('email')}}">
                                        @if($errors->has('email'))
                                        <div class="form-group danger">
-                                        <p class="text-danger" style="margin-left:20px">{{ $errors->first('email') }}</p>
+                                        <p class="text-danger" style="margin-left:20px"
+                                        value="{{ old('email') }}" 
+                                        >{{ $errors->first('email') }}</p>
                                   </div>
                                   @endif
                             </div>

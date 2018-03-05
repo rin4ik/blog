@@ -11,13 +11,13 @@
                         <h3 class="text-uppercase">Login</h3>
                         <br>
   
-                        <form class="form-horizontal contact-form" role="form" method="post" action="/login">
+                        <form class="form-horizontal contact-form" role="form" method="post" action="/login" autocomplete="on">
                             {{csrf_field()}}
                             <div class="form-group">
                                 <div class="col-md-12">
                                         <label for="email">Email:</label>
                                     <input type="text" class="form-control" id="email" name="email"
-                                         >
+                                    value="{{ old('email') }}" >
                                            @if($errors->has('email'))
                                            <div class="form-group danger">
                                             <p class="text-danger" style="margin-left:20px">{{ $errors->first('email') }}</p>

@@ -23,16 +23,36 @@
                     <li><a href="contact.html">CONTACT</a></li>
                 </ul>
 
-                <ul class="nav navbar-nav text-uppercase pull-right">
-                  @if(!auth()->check())
-                    <li><a href="/register">Register</a></li>
-                    <li><a href="/login">Login</a></li>
-                    @else
-                   
-                    <li><a href="/profile">My profile</a></li>
-                    <li><a href="/logout">Logout</a></li>
-                    @endif
-                </ul>
+               <ul class="nav navbar-nav navbar-right">
+				<!-- Authentication Links -->
+				@guest
+				<li class="text-uppercase">
+					<a href="/login">Login</a>
+				</li>
+				<li class="text-uppercase">
+					<a href="/register">Register</a>
+				</li>
+				@else
+				<li class="dropdown text-uppercase">
+					<a href="/profile" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+						{{ Auth::user()->name }}
+						<span class="caret"></span>
+					</a>
+
+					<ul class="dropdown-menu ">
+						<li>
+							<a href="/profiles/{{ Auth::user()->name }}">My Profile</a>
+						</li>
+						<li style="margin-bottom:0">
+							<a href="/logout">
+								Logout
+							</a>
+
+						</li>
+					</ul>
+				</li>
+				@endguest
+			</ul>
 
             </div>
             <!-- /.navbar-collapse -->
