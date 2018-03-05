@@ -16,6 +16,8 @@
 
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<div class="container">
+    
 
                 <ul class="nav navbar-nav text-uppercase">
                     <li><a href="/">Homepage</a></li>
@@ -53,7 +55,7 @@
 				</li>
 				@endguest
 			</ul>
-
+        </div>
             </div>
             <!-- /.navbar-collapse -->
 
