@@ -31,13 +31,16 @@
  @include('layouts._share')
                     </div>
                 </article>
+              @if($post->owner->status)
                 <div class="top-comment shadow-md"><!--top comment-->
-                    <img src="{{asset('images/comment.jp')}}g" class="pull-left img-circle" alt="">
-                    <h4>Rubel Miah</h4>
-
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy hello ro mod tempor
-                        invidunt ut labore et dolore magna aliquyam erat.</p>
-                </div><!--top comment end-->
+                   <div class="row">
+                        <img src="{{$post->owner->getImage()}}" class="pull-left " alt="" width="120px" height="100px">
+                        <h4>{{$post->owner->name}}</h4>
+    
+                        <p>{{$post->owner->status}}</p>
+                    
+                   </div>
+                </div><!--top comment end-->@endif
              @include('layouts.nextPrev')
              @include('layouts._carousel')<!--related post carousel-->
                 <div class="bottom-comment  shadow-md"><!--bottom comment-->
@@ -62,7 +65,8 @@
                             voluptua. At vero eos et cusam et justo duo dolores et ea rebum.</p>
                     </div>
                 </div>
-                <!-- end bottom comment-->
-
-            @include('layouts._form')
+                <!-- end bottom comment--> @include('layouts._form')
+  </div>
+           
+  
 @endsection

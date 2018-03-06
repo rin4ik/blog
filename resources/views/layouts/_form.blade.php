@@ -1,3 +1,4 @@
+@auth
 <div class="leave-comment shadow-md">
     <!--leave comment-->
     <h4>Leave a reply</h4>
@@ -27,4 +28,9 @@
     </form>
 </div>
 <!--end leave comment-->
-</div>
+@else
+<div class="leave-comment shadow-md">
+        <!--leave comment-->
+        <h4 class="text-center">Please <a href="/login">sign in</a> to participate</h4>
+        </div>
+@endauth

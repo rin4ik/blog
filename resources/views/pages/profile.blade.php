@@ -61,17 +61,17 @@
                 </div><!--end leave comment-->
             </div>
             @else
-            <div class="col-md-8">
+            <div class="col-md-8"><div class="row">
                     <div class="leave-comment mr0 shadow-md">
             <br> 
-            <img  src="{{$user->getImage()}}" style="margin:10px" alt="" width="100px" height="100px" >
-            <b class="text-uppercase">
-                    {{$user->name}}
-            </b>
+            <img  src="{{$user->getImage()}}" style="margin:10px" style="border-radius:50px" alt="" width="100px" height="100px" >
+            
+            <h3 class="text-uppercase text-center">
+                   user activity
+            </h3>
             @foreach($user->posts as $post)
-            <article class="post shadow-md">
-                    
                             <div class="post-content">
+                                  
                                 <header class="entry-header text-center text-uppercase">
                                     @if($post->hasCategory())
                                     <h6>
@@ -94,12 +94,13 @@
                     
                                     <div class="btn-continue-reading text-center text-uppercase">
                                         <a href="{{$post->path()}}" class="more-link">Continue Reading</a>
-                                    </div>
+                                    </div> <p style="color:#635757" class="pull-right">
+                                            {{$post->created_at->diffForHumans()}}
+                                    </p> 
                                 </div>
                                 
-                            </div>
-                        </article>
+                            </div><hr>
             @endforeach
-            </div></div>
+            </div></div></div>
             @endif
 @endsection
