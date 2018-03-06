@@ -3,15 +3,7 @@
 <!--main content start-->
 <div class="col-md-8">
     @foreach($posts as $post)
-    <div class="post-thumb shadow-md">
-        <a href="">
-            <img src="{{$post->getImage()}}" alt="">
-        </a>
-
-        <a href="{{$post->path()}}" class="post-thumb-overlay text-center">
-            <div class="text-uppercase text-center">View Post</div>
-        </a>
-    </div>
+ 
     <article class="post shadow-md">
 
         <div class="post-content">
