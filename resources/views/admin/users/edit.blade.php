@@ -13,7 +13,7 @@
     
         <!-- Main content -->
         <section class="content">
-          <form action="/admin/users/{{$user->id}}" method="POST" enctype="multipart/form-data" >
+          <form action="/admin/users/{{$user->name}}" method="POST" enctype="multipart/form-data" >
             {{ csrf_field() }} {{ method_field('PATCH') }}
           <!-- Default box -->
           <div class="box">
@@ -25,7 +25,7 @@
                
                 <div class="form-group">
                   <label for="exampleInputEmail1">Имя</label>
-                  <input type="text" " class="form-control" id="exampleInputEmail1" placeholder="" name="name" value="{{$user->name}}">
+                  <input type="text" class="form-control" id="exampleInputEmail1" placeholder="" name="name" value="{{$user->name}}">
                   <div class="form-group danger">
                     <p class="text-danger">{{ $errors->first('name') }}</p>
               </div>
