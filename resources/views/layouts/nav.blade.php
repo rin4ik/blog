@@ -43,7 +43,7 @@
 
 					<ul class="dropdown-menu ">
 						<li>
-							<a href="/profiles/{{ Auth::user()->name }}">My Profile</a>
+							<a href="/profile/{{ Auth::user()->name }}">My Profile</a>
 						</li>
 						<li style="margin-bottom:0">
 							<a href="/logout">

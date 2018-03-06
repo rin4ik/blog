@@ -1,6 +1,6 @@
 <div class="social-share">
         <span class="social-share-title pull-left ">by
-            <a href="#">{{$post->owner->name}}</a> on
+            <a href="{{route('profile',$post->owner->name)}}">{{$post->owner->name}}</a> on
             <span style="color:orange"> {{$post->getDate()}}</span>
         </span>
         <ul class="text-center pull-right">

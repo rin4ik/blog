@@ -16,8 +16,10 @@ Route::get('/post/{slug}', 'HomeController@show')->name('post.show');
 Route::get('/tag/{slug}', 'HomeController@tag')->name('tag.show');
 Route::get('/category/{slug}', 'HomeController@category')->name('category.show');
 Route::get('/register', 'AuthController@registerForm');
+Route::get('/profile/{name}', 'ProfileController@index')->name('profile');
+Route::post('/profile/{name}', 'ProfileController@update');
 Route::post('/register', 'AuthController@register');
-    Route::get('/login', 'AuthController@loginForm');
+    Route::get('/login', 'AuthController@loginForm')->name('login');
     Route::post('/login', 'AuthController@login');
     Route::get('/logout', 'AuthController@logout');
 

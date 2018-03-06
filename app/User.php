@@ -44,6 +44,14 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function generatePassword($password)
+    {
+        if ($password != null) {
+            $this->password = bcrypt($password);
+            $this->save();
+        }
+    }
+
     public static function add($fields)
     {
         $user = new static;
