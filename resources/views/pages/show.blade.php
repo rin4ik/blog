@@ -2,6 +2,11 @@
 @section('content')
     
             <div class="col-md-8">
+                @if(session('status'))
+                    <div class="alert alert-success">
+                        {{session('status')}}
+                    </div>
+                @endif
                 <article class="post shadow-md">
                     <div class="post-thumb">
                         <a href="blog.html"><img src="{{$post->getImage()}}" alt=""></a>
@@ -34,7 +39,7 @@
               @if($post->owner->status)
                 <div class="top-comment shadow-md"><!--top comment-->
                    <div class="row">
-                        <img src="{{$post->owner->getImage()}}" class="pull-left " alt="" width="120px" height="100px">
+                        <img src="{{$post->owner->getImage()}}" class="pull-left" alt="" width="120px" height="100px">
                         <h4>{{$post->owner->name}}</h4>
     
                         <p>{{$post->owner->status}}</p>
@@ -43,29 +48,30 @@
                 </div><!--top comment end-->@endif
              @include('layouts.nextPrev')
              @include('layouts._carousel')<!--related post carousel-->
-                <div class="bottom-comment  shadow-md"><!--bottom comment-->
-                    <h4>3 comments</h4>
-                    
+             @if(!$post->comments->isEmpty())   
+           
+                    @foreach($post->getComments() as $comment)
+                    <!--bottom comment-->
+                    <div class="bottom-comment  shadow-md"> 
+                        
                     <div class="comment-img">
-                        <img class="img-circle" src="{{asset('images/comment-im')}}g.jpg" alt="">
+                        <img class="img-circle" src="{{$comment->author->getImage()}}"  width="75px" height="75px" alt="">
                     </div>
 
                     <div class="comment-text">
-                        <a href="#" class="replay btn pull-right"> Replay</a>
-                        <h5>Rubel Miah</h5>
+                        <h5>{{$comment->author->name}}</h5>
 
                         <p class="comment-date">
-                            December, 02, 2015 at 5:57 PM
+                            {{$comment->created_at->diffForHumans()}}
                         </p>
 
 
-                        <p class="para">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                            diam nonumy
-                            eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-                            voluptua. At vero eos et cusam et justo duo dolores et ea rebum.</p>
-                    </div>
-                </div>
+                        <p class="para">{{$comment->text}}</p>
+                    </div> </div>
+                    @endforeach
+               @endif
                 <!-- end bottom comment--> @include('layouts._form')
+
   </div>
            
   
