@@ -19,7 +19,10 @@ Route::get('/register', 'AuthController@registerForm');
 Route::get('/profile/{name}', 'ProfileController@index')->name('profile');
 Route::post('/profile/{name}', 'ProfileController@update');
 Route::post('/register', 'AuthController@register');
-    Route::get('/login', 'AuthController@loginForm')->name('login');
+
+Route::post('/comment', 'CommentsController@store')->middleware('auth');
+
+Route::get('/login', 'AuthController@loginForm')->name('login');
     Route::post('/login', 'AuthController@login');
     Route::get('/logout', 'AuthController@logout');
 
@@ -29,4 +32,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admi
     Route::resource('/users', 'UsersController');
     Route::resource('/categories', 'CategoriesController');
     Route::resource('/posts', 'PostsController');
+    Route::get('/comments', 'CommentsController@index');
+    Route::get('/comments/toggle/{id}', 'CommentsController@toggle');
+    Route::delete('/comments/{comment}/destroy', 'CommentsController@destroy')->name('comments.destroy');
 });

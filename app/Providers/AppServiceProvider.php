@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Comment;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,8 +16,14 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(
-            'layouts.right-sidebar',
+            'layouts.right-sidebar,admin.layouts._leftNav',
             'App\Http\Composers\Views'
+        );
+        view()->composer(
+            'admin.layouts._leftNav',
+            function ($view) {
+                $view->with('count', Comment::where('status', 0)->count());
+            }
         );
 
         \Schema::defaultStringLength(191);

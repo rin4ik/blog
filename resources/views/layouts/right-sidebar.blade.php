@@ -1,7 +1,7 @@
 <div class="col-md-4" data-sticky_column>
     <div class="primary-sidebar">
             <aside class="widget border pos-padding shadow">
-                    <h3 class="widget-title text-uppercase text-center">Категории</h3>
+                    <h3 class="widget-title text-uppercase text-center">Categories</h3>
                     <ul >
                             @foreach($categories as $category)
                             <li style='text-transform:uppercase'>   <a style="text-decoration:none" href="{{route('category.show',$category->slug)}}">{{$category->title}}</a>
@@ -12,7 +12,7 @@
                 </aside>
  
         <aside class="widget news-letter shadow " >
-            <h3 class="widget-title text-uppercase text-center">Теги</h3>
+            <h3 class="widget-title text-uppercase text-center">Tags</h3>
                  <ul >
                         @foreach($tags as $tag)
                         
@@ -24,7 +24,7 @@
          
             </aside>
         <aside class="widget shadow">
-            <h3 class="widget-title text-uppercase text-center">Популярные посты</h3>
+            <h3 class="widget-title text-uppercase text-center">Popular posts</h3>
 @foreach($popular as $item)
             <div class="popular-post">
 
@@ -43,7 +43,7 @@
  @endforeach           
         </aside>
         <aside class="widget">
-            <h3 class="widget-title text-uppercase text-center">Рекомендованные посты</h3>
+            <h3 class="widget-title text-uppercase text-center">Recomended posts</h3>
 
             <div id="widget-feature" class="owl-carousel">@foreach($featured as $item)
                 <div class="item">
@@ -61,7 +61,7 @@
 
         </aside>
         <aside class="widget pos-padding shadow">
-            <h3 class="widget-title text-uppercase text-center">Недавные посты</h3>
+            <h3 class="widget-title text-uppercase text-center">recent posts</h3>
 
             <div class="thumb-latest-posts">
 

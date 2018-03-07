@@ -18,6 +18,11 @@ class Post extends Model
         'is_featured' => 'boolean'
     ];
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function path()
     {
         return "/post/{$this->slug}";
@@ -26,6 +31,11 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function getComments()
+    {
+        return $this->comments()->where('status', 1)->orderBy('created_at', 'desc')->get();
     }
 
     public function getRouteKeyName()
