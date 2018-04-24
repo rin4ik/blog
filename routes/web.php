@@ -26,7 +26,7 @@ Route::get('/login', 'AuthController@loginForm')->name('login');
     Route::post('/login', 'AuthController@login');
     Route::get('/logout', 'AuthController@logout');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'admins'], function () {
     Route::get('/', 'DashboardController@index');
     Route::resource('/tags', 'TagsController');
     Route::resource('/users', 'UsersController');

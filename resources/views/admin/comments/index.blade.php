@@ -70,3 +70,50 @@
       </div>
       <!-- /.content-wrapper -->
 @endsection
+ 
+        <div>
+          <label for="prod_cat">Product Categories:</label>
+  
+          <br />
+          @php ($i = 0)
+        @foreach($categories as $category)
+          <label class="checkbox">
+            <input type="checkbox" name="prod_cat[]" value="{{ $category->cat_id }}"
+  
+  
+            @foreach($product->productMetas->toArray() as $metas)
+              @if($metas['prod_meta_type'] == 1)
+                @if($metas['value'] == $category->cat_id)
+                  checked
+                @endif
+              @endif
+            @endforeach
+  
+            ><strong> {{$category->cat_name}} </strong></input>
+          </label>
+  
+  
+  
+            @foreach($categories[$i]->subCategories as $subcategory)
+            <label class="checkbox-inline">
+                &boxur;  <input type="checkbox" name="prod_subcat[]" value="{{ $subcategory->subcat_id }}"
+  
+                @foreach($product->productMetas->toArray() as $metas)
+                  @if($metas['prod_meta_type'] == 2)
+                    @if($metas['value'] == $subcategory->subcat_id)
+                      checked
+                    @endif
+                  @endif
+                @endforeach
+  
+  
+                >{{$subcategory->subcat_name}}</input>
+              </label>
+  
+              <br />
+            @endforeach
+            @php ($i++)
+          @endforeach
+        </div>
+  
+      </div>

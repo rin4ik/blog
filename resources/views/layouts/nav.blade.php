@@ -22,7 +22,7 @@
                 <ul class="nav navbar-nav text-uppercase">
                     <li><a href="/">Homepage</a></li>
                     <li><a href="about-me.html">ABOUT ME </a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="/contact">CONTACT</a></li>
                 </ul>
 
                <ul class="nav navbar-nav navbar-right">
